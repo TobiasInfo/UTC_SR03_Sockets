@@ -1,0 +1,529 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\newenvironment{Shaded}{}{}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.49,0.56,0.16}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.53,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.73,0.13,0.13}{\textit{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.40,0.40,0.40}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.74,0.48,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.73,0.40,0.53}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.10,0.09,0.49}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+%
+% Inclusion des packets
+\usepackage[a4paper,top=2cm,bottom=1.5cm,left=2cm,right=2cm,marginparwidth=1.5cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amssymb,amsmath}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{fancyhdr}
+\usepackage{setspace}
+\usepackage{textcomp}
+\usepackage{fancyvrb}
+\usepackage{algorithm}
+\usepackage{pdfpages}
+\usepackage[font=small, labelfont=bf]{caption}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+
+\newcommand{\HRule}[1]{\rule{\linewidth}{#1}}
+\onehalfspacing
+
+\pagestyle{fancy}
+\fancyhf{}
+\setlength\headheight{15pt}
+ \setlength{\marginparwidth}{2cm}
+\usepackage[
+    left = \flqq{},% 
+    right = \frqq{},% 
+    leftsub = \flq{},% 
+    rightsub = \frq{} %
+    ]{dirtytalk}
+    \setlength\headheight{15pt}
+    
+    % Ligne de Haut de page (Nom + UV)
+    \fancyhead[L]{BUREAU Marius SAVARY Tobias UTC - GI04} 
+    \fancyhead[R]{SR03 - Rapport Devoir 1}
+
+    % Bas de page (Nomero de page + UTC)
+    \fancyfoot[R]{\thepage}
+    \fancyfoot[L]{Université de Technologie de Compiègne}
+     \setlength {\marginparwidth}{2cm}
+     \renewcommand{\footrulewidth}{.5pt}
+
+
+\begin{document}
+
+\title{ 
+  % TODO : Possible de mettre des images en haut de la page de garde 
+  \begin{center}
+          \includegraphics[width=9cm]{img/UTC.png} \\ [2cm]
+  \end{center}
+		\HRule{2pt} \\
+
+    % Titre du Rapport
+		\LARGE \textbf{Rapport Devoir 1:\\Application de chat \\multi-thread en
+    Java} 
+		\HRule{2pt} \\ [5.5cm]
+
+
+		\normalsize  
+    % Nom de l'auteur
+        \author{
+            Tobias SAVARY \\[0.5cm]
+            Marius BUREAU \\[0.5cm]
+           \\[1cm]
+        }
+		}
+    % Année universitaire
+		\maketitle
+        \begin{center}
+            Année universitaire 2023/2024
+        \end{center}
+\pagebreak
+
+% Table des matières 
+\tableofcontents
+
+\pagebreak
+
+\hypertarget{contexte}{%
+\subsection{Contexte}\label{contexte}}
+
+Le projet consiste à développer une application de chat Client/Serveur
+en utilisant des sockets qui permet d'organiser une discussion publique
+avec un ensemble de participants. La discussion dans cette application
+sera affichée dans la console.
+
+L'application reposera sur le fonctionnement d'un processus serveur,
+fonctionnant sur la machine côté serveur et d'un nombre X de processus
+clients, fonctionnant sur les machines utilisateurs.
+
+Pour se connecter au serveur, le client aura besoin du programme
+``Client'' ainsi que des programmes threads associés. Il aura aussi
+besoin de connaître le port sur lequel l'application (côté serveur) est
+en train de tourner, ainsi que de son adresse IP. Cela implique
+qu'aujourd'hui l'application ne peut fonctionner qu'entre des clients se
+situant dans le même réseau que le serveur.
+
+Concernant l'implémentation, il a fallu trouver un moyen de gérer les
+différents clients en simultané. Pour cela, deux options étaient
+possibles :
+
+\begin{itemize}
+\tightlist
+\item
+  La création de processus fils\\
+\item
+  La création de threads
+\end{itemize}
+
+La solution qui a été retenue a été celle des threads, car cela permet
+de ne pas être bloqué dans le traitement d'un message en cours. Aussi,
+afin de ne pas être en conflit lors de la réception et l'envoi de
+message pour un client, il a été décidé que cela se ferait
+indépendamment l'un de l'autre (un thread pour la réception de messages
+et un thread pour l'envoi de messages).
+
+Lors de l'analyse du fonctionnement du serveur, nous avons remarqué que
+le serveur effectue des actions uniquement lors du traitement de message
+envoyé par un client. Il n'est donc pas nécessaire d'utiliser deux
+threads par client comme pour le programme client. Ici, nous utiliserons
+uniquement un thread par client, qui va attendre la lecture de données
+sur son socket et effectuera des actions (diffusion de message par
+exemple) en lien avec ce qui a été lues. Le serveur effectuera une
+boucle infinie afin d'accepter les nouveaux clients et d'effectuer la
+gestion et la diffusion de messages reçus.
+
+Exemples de cas d'utilisation pratiques :
+
+\begin{itemize}
+\tightlist
+\item
+  Un client se connecte au serveur et envoi un message.
+\item
+  Plusieurs clients se connectent au serveur et discutent ensemble.
+\item
+  Un client se déconnecte du serveur en envoyant le message ``exit''.
+\item
+  Un client se déconnecte du serveur sans prévenir (par exemple en
+  fermant la fenêtre du terminal).
+\item
+  Le serveur s'arrête et tous les clients connectés sont déconnectés.
+\item
+  Un client essaye de se connecter avec un pseudonyme déjà utilisé par
+  un autre client.
+\end{itemize}
+
+\begin{figure}[H]
+\centering
+\includegraphics{img/UtilisationNormal.png}
+\caption{Exemple d'utilisation Normale}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics{img/DeconnexionClient.png}
+\caption{Deconnexion Client}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics{img/DeconnexionServer.png}
+\caption{Deconnexion Serveur}
+\end{figure}
+
+\pagebreak
+
+\hypertarget{scuxe9narios}{%
+\subsection{Scénarios}\label{scuxe9narios}}
+
+Récupération du code source du projet.\\
+Cloner le repository GitLab suivant : \url{https://gitlab.utc.fr/savaryto/UTC_SR03.git}
+
+Pour installer et lancer l'application, il faut :
+
+\hypertarget{utilisation-en-local}{%
+\subsubsection{Utilisation en local :}\label{utilisation-en-local}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Ouvrir le projet dans IntelliJ IDEA.
+\item
+  Lancer une instance de la classe Server.
+\item
+  Lancer une ou plusieurs instances de la classe Client.
+\end{enumerate}
+
+\hypertarget{utilisation-en-ruxe9seau}{%
+\subsubsection{Utilisation en réseau :}\label{utilisation-en-ruxe9seau}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Ouvrir le projet dans IntelliJ IDEA.
+\item
+  Modifier l'adresse IP et le port dans la classe Client pour qu'ils
+  correspondent à ceux du serveur.
+\item
+  Lancer une ou plusieurs instances de la classe Server.
+\end{enumerate}
+
+\hypertarget{diagrammes-des-cas-dutilisation}{%
+\subsection{Diagrammes des cas
+d'utilisation}\label{diagrammes-des-cas-dutilisation}}
+
+\begin{figure}[H]
+\centering
+\includegraphics{img/ConnectNewClient.png}
+\caption{Diagramme de connexion d'un nouveau client}
+\end{figure}
+
+\begin{center}
+  \begin{figure}[H]
+    \centering
+    \includegraphics[height=11cm]{img/LectureEnvoiMsg.png}
+    \caption{Diagramme de lecture et d'envoie de message}
+    \end{figure}
+\end{center}
+
+\begin{center}
+\begin{figure}[H]
+\centering
+\includegraphics[height=11cm]{img/DisconnectClient.png}
+\caption{Diagramme de déconnexion d'un client}
+\end{figure}
+\end{center}
+\hypertarget{conception-et-duxe9veloppement}{%
+\subsection{Conception et
+développement}\label{conception-et-duxe9veloppement}}
+
+Du côté serveur, l'application exécute une boucle infinie pour continuer
+à accepter les demandes entrantes et stocke les objets socket
+nouvellement connectés dans un tableau ``clients''. Un thread est lancé
+pour intercepter tout message envoyé dans chaque objet socket récemment
+stocké. Lorsque le serveur reçoit un message dans l'un des sockets de
+communication, il récupère ce message puis il le diffuse sur l'ensemble
+des objets socket stockés dans le tableau ``clients''. Dans le cas où le
+serveur reçoit un message ``exit'' dans l'un des objets socket
+correspondant à l'un des clients, il diffuse le message suivant
+``l'utilisateur X a quitté la conversation'' sur le reste des clients
+connectés et libère le socket, les flux d'E/S et le thread associé au
+client.
+
+Du côté client, l'application effectue une connexion auprès du serveur,
+envoie son pseudonyme à travers le socket de communication créé, et
+implémente deux threads. Le premier est utilisé pour intercepter les
+messages venant du serveur et le deuxième est utilisé pour récupérer les
+messages saisis par l'utilisateur et de les transmettre au serveur.
+
+\hypertarget{gestion-des-pseudos-uniques}{%
+\subsubsection{Gestion des pseudos
+uniques}\label{gestion-des-pseudos-uniques}}
+
+Pour garantir qu'un pseudonyme est unique, nous avons utilisé une liste
+statique ``pseudo'' dans la classe Server. Lorsqu'un nouveau client se
+connecte, le serveur vérifie si le pseudo est déjà présent dans la
+liste. Si c'est le cas, le serveur envoie un message au client pour lui
+demander de choisir un autre pseudo. Sinon, le serveur ajoute le
+pseudonyme à la liste et envoie un message de bienvenue au client.
+
+Voici le code correspondant dans la classe Server :
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{private} \DataTypeTok{static} \DataTypeTok{final} \BuiltInTok{List}\NormalTok{\textless{}}\BuiltInTok{String}\NormalTok{\textgreater{} pseudo = }\KeywordTok{new} \BuiltInTok{ArrayList}\NormalTok{\textless{}\textgreater{}();}
+
+\KeywordTok{public} \DataTypeTok{static} \DataTypeTok{boolean} \FunctionTok{addPseudo}\NormalTok{(}\BuiltInTok{String}\NormalTok{ userName, }\BuiltInTok{Socket}\NormalTok{ socket) \{}
+    \KeywordTok{if}\NormalTok{ (pseudo.}\FunctionTok{contains}\NormalTok{(userName)) \{}
+        \KeywordTok{return} \KeywordTok{false}\NormalTok{;}
+\NormalTok{    \} }\KeywordTok{else}\NormalTok{ \{}
+\NormalTok{        clients.}\FunctionTok{add}\NormalTok{(socket);}
+\NormalTok{        pseudo.}\FunctionTok{add}\NormalTok{(userName);}
+        \KeywordTok{return} \KeywordTok{true}\NormalTok{;}
+\NormalTok{    \}}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+Dans la méthode run() de la classe MessageReceptor, nous avons ajouté le
+code suivant pour gérer l'ajout d'un nouveau client :
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{// If the first message, send the username to all clients}
+\KeywordTok{if}\NormalTok{ (!isAdded) \{}
+    \FunctionTok{setUserName}\NormalTok{(}\KeywordTok{new} \BuiltInTok{String}\NormalTok{(buffer, }\DecValTok{0}\NormalTok{, length));}
+\NormalTok{    isAdded = Server.}\FunctionTok{addPseudo}\NormalTok{(}\FunctionTok{getUserName}\NormalTok{(), clientSocket);}
+    \KeywordTok{if}\NormalTok{ (isAdded) \{}
+        \BuiltInTok{System}\NormalTok{.}\FunctionTok{out}\NormalTok{.}\FunctionTok{println}\NormalTok{(}\StringTok{"Nom du nouveau client en ligne : "}\NormalTok{ + }\FunctionTok{getUserName}\NormalTok{());}
+\NormalTok{        Server.}\FunctionTok{broadcastMessage}\NormalTok{((}\FunctionTok{getUserName}\NormalTok{() + }\StringTok{" a rejoint la conversation}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{));}
+\NormalTok{        Server.}\FunctionTok{broadcastMessage}\NormalTok{(}\StringTok{"{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{);}
+\NormalTok{    \} }\KeywordTok{else}\NormalTok{ \{}
+\NormalTok{        clientSocket.}\FunctionTok{getOutputStream}\NormalTok{().}\FunctionTok{write}\NormalTok{(}
+            \StringTok{"Le pseudo est déjà utilisé. Veuillez choisir un autre pseudo :"}\NormalTok{.}\FunctionTok{getBytes}\NormalTok{());}
+\NormalTok{    \}}
+    \KeywordTok{continue}\NormalTok{;}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{gestion-des-deconnexions-inattendues}{%
+\subsubsection{Gestion des deconnexions
+inattendues}\label{gestion-des-deconnexions-inattendues}}
+
+\hypertarget{client}{%
+\paragraph{Client\\}\label{client}}
+
+Pour gérer le cas d'une déconnexion de client sans que le serveur soit
+prévenu, nous avons utilisé une variable statique ``isRunning'' dans la
+classe MessageReceptor. Lorsqu'un client se déconnecte, le serveur
+arrête le thread correspondant en mettant la variable ``isRunning'' à
+false. De plus, nous avons ajouté un gestionnaire d'exception
+SocketException dans la méthode run() de la classe MessageReceptor pour
+détecter les déconnexions inattendues et arrêter le thread
+correspondant.
+
+Voici le code correspondant dans la classe MessageReceptor :
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{private} \DataTypeTok{boolean}\NormalTok{ isRunning = }\KeywordTok{true}\NormalTok{;}
+
+\KeywordTok{public} \DataTypeTok{void} \FunctionTok{setRunning}\NormalTok{(}\DataTypeTok{boolean}\NormalTok{ running) \{}
+\NormalTok{    isRunning = running;}
+\NormalTok{\}}
+
+\KeywordTok{public} \DataTypeTok{void} \FunctionTok{stopThread}\NormalTok{() \{}
+    \FunctionTok{setRunning}\NormalTok{(}\KeywordTok{false}\NormalTok{);}
+    \KeywordTok{try}\NormalTok{ \{}
+        \KeywordTok{this}\NormalTok{.}\FunctionTok{join}\NormalTok{();}
+\NormalTok{    \} }\KeywordTok{catch}\NormalTok{ (}\BuiltInTok{InterruptedException}\NormalTok{ e) \{}
+\NormalTok{        e.}\FunctionTok{printStackTrace}\NormalTok{();}
+\NormalTok{    \}}
+\NormalTok{\}}
+
+\AttributeTok{@Override}
+\KeywordTok{public} \DataTypeTok{void} \FunctionTok{run}\NormalTok{() \{}
+    \KeywordTok{while}\NormalTok{ (}\FunctionTok{isRunning}\NormalTok{()) \{}
+        \CommentTok{// code pour lire les messages entrants}
+\NormalTok{    \}}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+Dans la méthode run() de la classe MessageReceptor, nous avons ajouté le
+code suivant pour gérer la déconnexion d'un client :
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{\} }\KeywordTok{catch}\NormalTok{ (}\BuiltInTok{SocketException}\NormalTok{ s) \{}
+    \BuiltInTok{System}\NormalTok{.}\FunctionTok{out}\NormalTok{.}\FunctionTok{println}\NormalTok{(}\StringTok{"Connexion rénitialisé par le client"}\NormalTok{);}
+    \KeywordTok{try}\NormalTok{ \{}
+\NormalTok{        Server.}\FunctionTok{broadcastMessage}\NormalTok{(}\StringTok{"Le client "}\NormalTok{ + }\FunctionTok{getUserName}\NormalTok{() + }\StringTok{" a été déconnecté"}\NormalTok{);}
+\NormalTok{        Server.}\FunctionTok{removeClient}\NormalTok{(clientSocket, }\FunctionTok{getUserName}\NormalTok{());}
+\NormalTok{        clientSocket.}\FunctionTok{close}\NormalTok{();}
+\NormalTok{    \} }\KeywordTok{catch}\NormalTok{ (}\BuiltInTok{IOException}\NormalTok{ e) \{}
+        \KeywordTok{throw} \KeywordTok{new} \BuiltInTok{RuntimeException}\NormalTok{(e);}
+\NormalTok{    \}}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{serveur}{%
+\paragraph{Serveur\\}\label{serveur}}
+
+Pour gérer le cas d'une déconnexion du serveur sans que les clients
+soient prévenus, nous avons utilisé une variable statique ``isRunning''
+dans la classe Server. Lorsque le serveur s'arrête, il met la variable
+``isRunning'' à false et arrête tous les threads correspondants aux
+clients connectés. De plus, nous avons ajouté un gestionnaire
+d'exception SocketException dans la méthode run() de la classe
+IncomingMessageHandler pour détecter les déconnexions inattendues du
+serveur et arrêter le thread correspondant.
+
+Voici le code correspondant dans la classe IncomingMessageHandler :
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{private} \DataTypeTok{boolean}\NormalTok{ isRunning = }\KeywordTok{true}\NormalTok{;}
+
+\KeywordTok{public} \DataTypeTok{void} \FunctionTok{setRunning}\NormalTok{(}\DataTypeTok{boolean}\NormalTok{ running) \{}
+\NormalTok{    isRunning = running;}
+\NormalTok{\}}
+
+\KeywordTok{public} \DataTypeTok{void} \FunctionTok{stopThread}\NormalTok{() \{}
+    \FunctionTok{setRunning}\NormalTok{(}\KeywordTok{false}\NormalTok{);}
+    \KeywordTok{try}\NormalTok{ \{}
+\NormalTok{        socket.}\FunctionTok{shutdownInput}\NormalTok{();}
+\NormalTok{    \} }\KeywordTok{catch}\NormalTok{ (}\BuiltInTok{IOException}\NormalTok{ e) \{}
+\NormalTok{        e.}\FunctionTok{printStackTrace}\NormalTok{();}
+\NormalTok{    \}}
+\NormalTok{\}}
+
+\AttributeTok{@Override}
+\KeywordTok{public} \DataTypeTok{void} \FunctionTok{run}\NormalTok{() \{}
+    \KeywordTok{while}\NormalTok{ (}\FunctionTok{isRunning}\NormalTok{() \&\& !socket.}\FunctionTok{isClosed}\NormalTok{()) \{}
+        \CommentTok{// code pour lire les messages entrants}
+\NormalTok{    \}}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+Dans la méthode run() de la classe IncomingMessageHandler, nous avons
+ajouté le code suivant pour gérer la déconnexion du serveur :
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{\} }\KeywordTok{catch}\NormalTok{ (}\BuiltInTok{SocketException}\NormalTok{ s) \{}
+    \BuiltInTok{System}\NormalTok{.}\FunctionTok{out}\NormalTok{.}\FunctionTok{println}\NormalTok{(}\StringTok{"Le serveur a un problème. Déconnexion ..."}\NormalTok{);}
+    \KeywordTok{try}\NormalTok{ \{}
+        \FunctionTok{getSocket}\NormalTok{().}\FunctionTok{close}\NormalTok{();}
+\NormalTok{    \} }\KeywordTok{catch}\NormalTok{ (}\BuiltInTok{IOException}\NormalTok{ e) \{}
+        \KeywordTok{throw} \KeywordTok{new} \BuiltInTok{RuntimeException}\NormalTok{(e);}
+\NormalTok{    \}}
+    \BuiltInTok{System}\NormalTok{.}\FunctionTok{exit}\NormalTok{(}\DecValTok{1}\NormalTok{);}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{conclusion}{%
+\subsection{Conclusion}\label{conclusion}}
+
+Dans ce projet, nous avons implémenté une application de chat
+multi-thread en Java qui permet d'organiser une discussion publique
+entre un ensemble de participants. Nous avons utilisé des sockets pour
+la communication entre le serveur et les clients, et des threads pour
+gérer les messages entrants et sortants. Nous avons également implémenté
+des fonctionnalités pour garantir l'unicité des pseudos et gérer les
+déconnexions inattendues.
+
+\end{document}
